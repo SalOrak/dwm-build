@@ -101,7 +101,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ 0,             HOLDKEY,      holdbar,           {0} },
+    /* Uncomment the line below to toggle bar while holding ModKey*/
+	/* { 0,             HOLDKEY,      holdbar,           {0} }, */
 };
 
 /* button definitions */
