@@ -52,6 +52,8 @@ static const Layout layouts[] = {
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
+#define HOLDKEY 125 // 125 == Windows Key --> Activate bar
+
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 /* Use bash to spawn shell commands */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/bash", "-c", cmd, NULL } }
@@ -99,6 +101,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ 0,             HOLDKEY,      holdbar,           {0} },
 };
 
 /* button definitions */
