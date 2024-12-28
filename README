@@ -7,9 +7,8 @@ This is my custom *DWM Build*.
     
 Patches
 ------------
-- [-] Fullscreen -- Win + F toggles current window to fullscreen. Not using anymore
-- [X] Holdbar    -- Only show topbar while pressing ModKey (WinKey)
-- [X] Anybar     -- Using polybar atm
+- [X] Fullscreen -- Win + F toggles current window to fullscreen.
+- [X] Holdbar    -- Only show topbar while pressing ModKey (WinKey) 
         
 Requirements
 ------------
