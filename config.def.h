@@ -91,7 +91,7 @@ static const Key keys[] = {
     { 0,          XF86XK_AudioMute,            spawn,           {.v = volumecontrol} },
     
     /* dwm management keys */
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	/* { MODKEY,                       XK_b,      togglebar,      {0} }, */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -104,16 +104,15 @@ static const Key keys[] = {
 	/* { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} }, */
     /* { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, */
 	/* { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, */
-
-	/* { MODKEY|ControlMask,           XK_space,  setlayout,      {0} }, */ /* Replaced by Fullscreen patch*/
 	{ MODKEY|ControlMask,           XK_f,      togglefloating, {0} },
-    { MODKEY,                       XK_f,      fullscreen,      {0} },
+    { MODKEY,                       XK_f,      setlayout,      {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    /* Monitor management */
+	/* { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } }, */
+	/* { MODKEY,                       XK_period, focusmon,       {.i = +1 } }, */
+	/* { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } }, */
+	/* { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } }, */
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -125,7 +124,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ControlMask|ShiftMask,             XK_k,      quit,           {0} },
     /* Uncomment the line below to toggle bar while holding ModKey*/
-	/* { 0,             HOLDKEY,      holdbar,           {0} }, */
+	{ 0,             HOLDKEY,      holdbar,           {0} },
 };
 
 /* button definitions */
