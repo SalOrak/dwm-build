@@ -72,6 +72,9 @@ static const char *screenshotcmd[]  = { "flameshot", "gui", NULL };
 static const char *upbrightness[]  = { "brightnessctl", "set", "+10%", NULL };
 static const char *downbrightness[]  = { "brightnessctl", "set", "10%-", NULL };
 
+/* TODO: raise volume through command instead of launching pavucontrol */
+static const char *volumecontrol[]  = { "pavucontrol", NULL };
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
   
@@ -83,6 +86,9 @@ static const Key keys[] = {
     { MODKEY,                       XK_s,      spawn,          {.v = screenshotcmd} },
     { 0,          XF86XK_MonBrightnessUp,      spawn,           {.v = upbrightness} },
     { 0,          XF86XK_MonBrightnessDown,    spawn,           {.v = downbrightness} },
+    { 0,          XF86XK_AudioRaiseVolume,     spawn,           {.v = volumecontrol} },
+    { 0,          XF86XK_AudioLowerVolume,     spawn,           {.v = volumecontrol} },
+    { 0,          XF86XK_AudioMute,            spawn,           {.v = volumecontrol} },
     
     /* dwm management keys */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
