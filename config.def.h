@@ -1,5 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
+/* To Bind XF86 keys */
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -52,7 +55,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
-#define HOLDKEY 0xffeb // 125 == Windows Key --> Activate bar
+#define HOLDKEY 0xffeb // Windows Key --> To activate bar
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 /* Use bash to spawn shell commands */
@@ -63,12 +66,25 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *editorcmd[] = {"emacsclient", "--create-frame", "--alternate-editor=''"};
+static const char *gtdcmd[]  = { "todoist-electron", NULL };
+static const char *screenshotcmd[]  = { "flameshot", "gui", NULL };
+
+static const char *upbrightness[]  = { "brightnessctl", "set", "+10%", NULL };
+static const char *downbrightness[]  = { "brightnessctl", "set", "10%-", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+  
+    /* Commands */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
-    { MODKEY,                       XK_Return,  spawn,         {.v = editorcmd} },
+    { MODKEY,                       XK_Return, spawn,          {.v = editorcmd} },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = termcmd } },
+    { MODKEY,                       XK_t,      spawn,          {.v = gtdcmd} },
+    { MODKEY,                       XK_s,      spawn,          {.v = screenshotcmd} },
+    { 0,          XF86XK_MonBrightnessUp,      spawn,           {.v = upbrightness} },
+    { 0,          XF86XK_MonBrightnessDown,    spawn,           {.v = downbrightness} },
+    
+    /* dwm management keys */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -76,13 +92,14 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	/* { MODKEY,                       XK_Return, zoom,           {0} }, */
+	{ MODKEY,                       XK_m,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY|ControlMask,           XK_space,  setlayout,      {0} },
+	/* { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} }, */
+    /* { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, */
+	/* { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, */
+
+	/* { MODKEY|ControlMask,           XK_space,  setlayout,      {0} }, */ /* Replaced by Fullscreen patch*/
 	{ MODKEY|ControlMask,           XK_f,      togglefloating, {0} },
     { MODKEY,                       XK_f,      fullscreen,      {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
