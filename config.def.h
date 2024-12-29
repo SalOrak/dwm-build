@@ -104,7 +104,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_comma,  setlayout,      {.v = &layouts[0]} },
     { MODKEY,                       XK_period, setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ControlMask,           XK_f,      togglefloating, {0} },
-    { MODKEY,                       XK_f,      setlayout,      {0} },
+    { MODKEY,                       XK_f,      togglefullscr,      {0}},
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
     /* Monitor management */
