@@ -81,8 +81,6 @@ static const char *screenshotcmd[]  = { "flameshot", "gui", NULL };
 static const char *upbrightness[]  = { "brightnessctl", "set", "+10%", NULL };
 static const char *downbrightness[]  = { "brightnessctl", "set", "10%-", NULL };
 
-/* TODO: raise volume through command instead of launching pavucontrol */
-static const char *volumecontrol[]  = { "pavucontrol", NULL };
 static const char *upvolume[]  = { "wpctl","set-volume", "-l", "1.2", "@DEFAULT_AUDIO_SINK@", "10%+", NULL };
 static const char *downvolume[]  = { "wpctl","set-volume", "-l", "1.2", "@DEFAULT_AUDIO_SINK@", "10%-", NULL };
 static const char *mutevolume[]  = { "wpctl","set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
