@@ -89,9 +89,9 @@ static const char *mutevolume[]  = { "wpctl","set-mute", "@DEFAULT_AUDIO_SINK@",
 
 
 /* Dunst: Notification */
-static const char *closeallnotifications[]  = { "dunsctl", "close-all", NULL};
-static const char *closelastnotification[]  = { "dunsctl", "close", NULL};
-static const char *showlastnotification[]  = { "dunsctl", "history-pop", NULL};
+static const char *closeallnotifications[]  = { "dunstctl", "close-all", NULL};
+static const char *closelastnotification[]  = { "dunstctl", "close", NULL};
+static const char *showlastnotification[]  = { "dunstctl", "history-pop", NULL};
 
 
 static const Key keys[] = {
