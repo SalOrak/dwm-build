@@ -78,12 +78,20 @@ static const char *editorcmd[] = {"emacsclient", "--create-frame", "--alternate-
 static const char *gtdcmd[]  = { "todoist-electron", NULL };
 static const char *screenshotcmd[]  = { "flameshot", "gui", NULL };
 
+/* Brightness setup */
 static const char *upbrightness[]  = { "brightnessctl", "set", "+10%", NULL };
 static const char *downbrightness[]  = { "brightnessctl", "set", "10%-", NULL };
 
+/* Volume setup */
 static const char *upvolume[]  = { "wpctl","set-volume", "-l", "1.2", "@DEFAULT_AUDIO_SINK@", "10%+", NULL };
 static const char *downvolume[]  = { "wpctl","set-volume", "-l", "1.2", "@DEFAULT_AUDIO_SINK@", "10%-", NULL };
 static const char *mutevolume[]  = { "wpctl","set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
+
+
+/* Dunst: Notification */
+static const char *closeallnotifications[]  = { "dunsctl", "close-all", NULL};
+static const char *closelastnotification[]  = { "dunsctl", "close", NULL};
+static const char *showlastnotification[]  = { "dunsctl", "history-pop", NULL};
 
 
 static const Key keys[] = {
@@ -95,6 +103,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = termcmd } },
     { MODKEY,                       XK_t,      spawn,          {.v = gtdcmd} },
     { MODKEY,                       XK_s,      spawn,          {.v = screenshotcmd} },
+    { MODKEY,                       XK_n,      spawn,          {.v = showlastnotification} },
+    { MODKEY,                       XK_g,      spawn,          {.v = closelastnotification} },
+    { MODKEY,                       XK_x,      spawn,          {.v = closeallnotifications} },
     { 0,          XF86XK_MonBrightnessUp,      spawn,           {.v = upbrightness} },
     { 0,          XF86XK_MonBrightnessDown,    spawn,           {.v = downbrightness} },
     { 0,          XF86XK_AudioRaiseVolume,     spawn,           {.v = upvolume} },
