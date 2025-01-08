@@ -73,6 +73,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *rofimenucmd[] = { "rofi", "-show", "drun", "dmenu"};
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *editorcmd[] = {"emacsclient", "--create-frame", "--alternate-editor=''"};
 static const char *gtdcmd[]  = { "todoist-electron", NULL };
@@ -98,7 +99,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
   
     /* Commands */
-	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
+    { MODKEY,                       XK_space,  spawn,          {.v = rofimenucmd } },
     { MODKEY,                       XK_Return, spawn,          {.v = editorcmd} },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = termcmd } },
     { MODKEY,                       XK_t,      spawn,          {.v = gtdcmd} },
