@@ -94,6 +94,8 @@ static const char *closeallnotifications[]  = { "dunstctl", "close-all", NULL};
 static const char *closelastnotification[]  = { "dunstctl", "close", NULL};
 static const char *showlastnotification[]  = { "dunstctl", "history-pop", NULL};
 
+/* Org Capture */
+static const char *emacsorgcapture[]  = { "emacsclient", "-e","'(sk-window-popup-org-capture)'", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -101,8 +103,8 @@ static const Key keys[] = {
     /* Commands */
     { MODKEY,                       XK_space,  spawn,          {.v = rofimenucmd } },
     { MODKEY,                       XK_Return, spawn,          {.v = editorcmd} },
-	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = termcmd } },
-    { MODKEY,                       XK_t,      spawn,          {.v = gtdcmd} },
+	{ MODKEY,                       XK_e,      spawn,          {.v = emacsorgcapture } },
+	{ MODKEY,                       XK_q,      spawn,          {.v = termcmd } },
     { MODKEY,                       XK_s,      spawn,          {.v = screenshotcmd} },
     { MODKEY,                       XK_n,      spawn,          {.v = showlastnotification} },
     { MODKEY,                       XK_g,      spawn,          {.v = closelastnotification} },
