@@ -96,13 +96,17 @@ static const char *showlastnotification[]  = { "dunstctl", "history-pop", NULL};
 /* Org Capture */
 static const char *emacsorgcapture[]  = { "emacsclient", "-e","(sk-window-popup-org-capture)", NULL};
 
+/* Browser */
+static const char *browser[]  = { "firefox", "--browser", NULL};
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
   
     /* Commands */
     { MODKEY,                       XK_space,  spawn,          {.v = rofimenucmd } },
-    { MODKEY,                       XK_Return, spawn,          {.v = editorcmd} },
+    { MODKEY,                       XK_w ,     spawn,          {.v = editorcmd} },
 	{ MODKEY,                       XK_e,      spawn,          {.v = emacsorgcapture } },
+	{ MODKEY,                       XK_A,      spawn,          {.v = browser } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = termcmd } },
     { MODKEY,                       XK_s,      spawn,          {.v = screenshotcmd} },
     { MODKEY,                       XK_n,      spawn,          {.v = showlastnotification} },
