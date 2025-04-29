@@ -76,7 +76,6 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *rofimenucmd[] = { "rofi", "-show", "drun", "dmenu"};
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *editorcmd[] = {"emacsclient", "--create-frame", "--alternate-editor=''"};
-static const char *gtdcmd[]  = { "todoist-electron", NULL };
 static const char *screenshotcmd[]  = { "flameshot", "gui", NULL };
 
 /* Brightness setup */
@@ -95,7 +94,7 @@ static const char *closelastnotification[]  = { "dunstctl", "close", NULL};
 static const char *showlastnotification[]  = { "dunstctl", "history-pop", NULL};
 
 /* Org Capture */
-static const char *emacsorgcapture[]  = { "emacsclient", "-e","'(sk-window-popup-org-capture)'", NULL};
+static const char *emacsorgcapture[]  = { "emacsclient", "-e","(sk-window-popup-org-capture)", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
