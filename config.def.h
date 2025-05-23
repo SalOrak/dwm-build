@@ -40,7 +40,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",        NULL,       NULL,       0,            1,           -1 },
-	{ "orgcapture",  "Emacs",    NULL,       0,            1,           -1 },
+	{ NULL,          NULL,   "orgcapture",       0,            1,           -1 },
 };
 
 /* layout(s) */
