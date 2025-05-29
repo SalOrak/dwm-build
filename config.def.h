@@ -26,7 +26,7 @@ static const char *colors[][3]      = {
   Commands from array are executed using execvp(). So if you need to execute shell command you need to prefix it with "sh", "-c" (change sh to any shell you like).
  */
 static const char *const autostart[] = {
-	"dwmblocks", NULL,
+  "bash", "-c", "dwmblocks", NULL,
 	NULL /* terminate */
 };
 
